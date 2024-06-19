@@ -29,17 +29,16 @@ public class Document {
     @Column(name="document_id")
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name="instructor_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_instructor_id")
     private Instructor instructor;
 
+    @Column(name="file")
     private byte[] file;
 
-    private byte[] filename;
+    @Column(name= "File_type")
+    private String fileType;
 
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
 
 
 
