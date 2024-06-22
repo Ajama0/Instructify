@@ -14,10 +14,12 @@ import java.time.LocalDate;
 public class UserDTOs {
 
 
-    private Long id;
-    private String username;
-    private LocalDate dob;
-    private Position position;
+//we don't want a user assigning themselves a Role upon registration. so we create a Dto.
+//users will only be required to enter username and password.
+
+private String Email;
+private String password;
+
 
 
 }

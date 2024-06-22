@@ -19,31 +19,31 @@ public class UserManagementService {
     }
 
 
-    //we encapsulate some data being transferred as we may not
-    public List<UserDTOs> getAllUsers(){
-        List<Users> getAllUsers = userRepository.findAll();
-        return getAllUsers.stream()
-                .map(user ->
-                        UserDTOs.builder()
-                                .id(user.getId())
-                                .username(user.getUsername())
-                                .dob(user.getDob())
-                                .position(user.getPosition())
-                                .build())
-                .collect(Collectors.toList());
-    }
-
-
-    //this will only be allowed By an admin. Configured in security
-    public void DeleteUsers(Long id){
-        Optional<Users> DeleteById=userRepository.findById(id);
-        if(DeleteById.isPresent()){
-            Users userUponDeletion = DeleteById.get();
-            userRepository.delete(userUponDeletion);
-        }
-
-        throw new IllegalArgumentException("There is no such User" + id);
-
-    }
+   //we encapsulate some data being transferred as we may not
+//    public List<UserDTOs> getAllUsers(){
+//        List<Users> getAllUsers = userRepository.findAll();
+//        return getAllUsers.stream()
+//                .map(user ->
+//                        UserDTOs.builder()
+//                                .id(user.getId())
+//                                .username(user.getUsername())
+//                                .dob(user.getDob())
+//                                .position(user.getPosition())
+//                                .build())
+//                .collect(Collectors.toList());
+//    }
+//
+//
+//    //this will only be allowed By an admin. Configured in security
+//    public void DeleteUsers(Long id){
+//        Optional<Users> DeleteById=userRepository.findById(id);
+//        if(DeleteById.isPresent()){
+//            Users userUponDeletion = DeleteById.get();
+//            userRepository.delete(userUponDeletion);
+//        }
+//
+//        throw new IllegalArgumentException("There is no such User" + id);
+//
+//    }
 
 }

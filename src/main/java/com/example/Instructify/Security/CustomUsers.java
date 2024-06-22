@@ -1,6 +1,7 @@
 package com.example.Instructify.Security;
 
 import com.example.Instructify.Model.Users;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,8 @@ import java.util.List;
 
 public class CustomUsers implements UserDetails {
 
+
+    @Autowired
     private Users users;
 
 
@@ -25,7 +28,7 @@ public class CustomUsers implements UserDetails {
 
     @Override
     public String getUsername() {
-        return users.getUsername();
+        return users.getEmail();
     }
 
     @Override

@@ -29,12 +29,13 @@ public class Document {
     @Column(name="document_id")
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    //maintain integrity- if we remove a record all associated records to that user in this relationship are removed
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name="fk_instructor_id")
     private Instructor instructor;
 
     @Column(name="file")
-    private byte[] file;
+    private String file;
 
     @Column(name= "File_type")
     private String fileType;

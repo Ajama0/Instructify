@@ -37,10 +37,19 @@ public class Instructor {
     @JoinColumn(name="fk_profile_id")
     private Profiles profiles;
 
+    @Column(name = "experience_Years")
+    private String experience;
+
+    @Column(name = "bio")
+    private String Bio;
+
+
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "Verification_status")
     private Status status;
+
 
 
     @Override

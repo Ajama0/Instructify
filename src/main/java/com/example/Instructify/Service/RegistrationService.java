@@ -48,47 +48,47 @@ public class RegistrationService {
     private final int MIN_LENGTH=5;
     private final int MAX_LENGTH =15;
 
-    public Users Register(Users user) {
-        //checking the password length.
-        if(user.getPassword().length()>=MIN_LENGTH && user.getPassword().length()<=MAX_LENGTH) {
-
-            //if a Teacher(instructor) signs up we ensure then we save that user to the Instructor repo
-            if (user.getPosition().equals(Position.TEACHER)){
-                try {
-                    Instructor instructor = new Instructor();
-                    instructor.setUsers(user);
-                    instructorRepository.save(instructor);
-
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("Error saving user" + e.getMessage());
-                }
-
-                //hash the users password upon every entry
-                user.setPassword(passwordEncoder.encode(user.getPassword()));
-                userRepository.save(user);
-
-
-            }
-        }
-        //if the wanted requirements are not provided throw this error
-        throw new IllegalArgumentException("Please Ensure the Correct inputs are Entered");
-    }
-
-
-
-
-    // here we will allow users to upload documents.This is to validate Instructors
-    public Document UploadDocuments(MultipartFile file) {
-      return null;
-    }
-
-
-
-
-
-
-
-
+//    public Users Register(Users user) {
+//        //checking the password length.
+//        if(user.getPassword().length()>=MIN_LENGTH && user.getPassword().length()<=MAX_LENGTH) {
+//
+//            //if a Teacher(instructor) signs up we ensure then we save that user to the Instructor repo
+//            if (user.getPosition().equals(Position.TEACHER)){
+//                try {
+//                    Instructor instructor = new Instructor();
+//                    instructor.setUsers(user);
+//                    instructorRepository.save(instructor);
+//
+//                } catch (Exception e) {
+//                    throw new IllegalArgumentException("Error saving user" + e.getMessage());
+//                }
+//
+//                //hash the users password upon every entry
+//                user.setPassword(passwordEncoder.encode(user.getPassword()));
+//                userRepository.save(user);
+//
+//
+//            }
+//        }
+//        //if the wanted requirements are not provided throw this error
+//        throw new IllegalArgumentException("Please Ensure the Correct inputs are Entered");
+//    }
+//
+//
+//
+//
+//    // here we will allow users to upload documents.This is to validate Instructors
+//    public Document UploadDocuments(MultipartFile file) {
+//      return null;
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 

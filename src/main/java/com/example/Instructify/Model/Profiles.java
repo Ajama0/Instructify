@@ -43,7 +43,8 @@ public class Profiles {
     @Column(name="Dob")
     private LocalDate dob;
 
-    //private List<String> Languages;
+    @ElementCollection
+    private List<String> Languages;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "position")
