@@ -22,10 +22,6 @@ import java.util.List;
 @Table(name="Users")
 public class Users implements UserDetails{
 
-
-
-
-
     @Id
     @SequenceGenerator(name="users_sequence",
             sequenceName = "",
@@ -55,6 +51,12 @@ public class Users implements UserDetails{
     public Users(String Email, String Password){
         this.Email = Email;
         this.password = Password;
+        this.role = Role.USER;
+    }
+
+    public Users(String Email){
+        this.Email = Email;
+        this.role = Role.USER;
     }
 
 
@@ -77,7 +79,7 @@ public class Users implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
     @Override

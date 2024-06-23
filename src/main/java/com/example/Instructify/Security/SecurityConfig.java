@@ -4,6 +4,7 @@ package com.example.Instructify.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,15 +25,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception{
        return httpSecurity.
                 authorizeHttpRequests(auth->auth
-                        .requestMatchers("Instructify")
-                        .authenticated()
+                        .requestMatchers("/").hasRole("ADMIN")
+                        .requestMatchers((HttpMethod.GET),"/AllUsers").hasAnyRole("USER","ADMIN")
 
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
 
 
                 )
                 .userDetailsService(customUserDetailsService)
-                .httpBasic(Customizer.withDefaults())
+               .httpBasic(Customizer.withDefaults())
                 .build();
 
 
