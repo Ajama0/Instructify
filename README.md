@@ -11,7 +11,7 @@ Instructify is a digital platform that connects driving instructors with learner
 
 ### Document Verification
 - **Credential Submission**: Instructors submit credentials during the registration process.
-- **Trust and Safety**: These documents are verified by the platform via Third partied to ensure the reliability and trustworthiness of instructors.
+- **Trust and Safety**: These documents are verified by the platform via Third parties to ensure the reliability and trustworthiness of instructors.
 
 ### Search and Matching
 - **Advanced Search Features**: Learners can search for instructors based on specific needs, including location, language, and special requirements like experience with nervous drivers.
